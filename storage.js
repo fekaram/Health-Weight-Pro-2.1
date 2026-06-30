@@ -146,8 +146,8 @@
   function sanitizeEntry(entry = {}) {
     const next = {
       date: normalizeDate(entry.date),
-      weight: toNumber(entry.weight),
-      waist: toNumber(entry.waist),
+     weight: toNullableNumber(entry.weight),
+waist: toNullableNumber(entry.waist),
       protein: toNumber(entry.protein),
       calories: toNumber(entry.calories),
       carbs: toNumber(entry.carbs),
