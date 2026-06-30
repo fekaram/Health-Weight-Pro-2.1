@@ -60,6 +60,21 @@
     const parsed = Number(String(value ?? "").replace(",", "."));
     return Number.isFinite(parsed) ? parsed : fallback;
   };
+  const toNullableNumber = (value) => {
+  if (
+    value === "" ||
+    value === null ||
+    value === undefined
+  ) {
+    return null;
+  }
+
+  const number = Number(value);
+
+  return Number.isFinite(number)
+    ? number
+    : null;
+};
   const byDateAsc = (a, b) => normalizeDate(a.date).localeCompare(normalizeDate(b.date));
   const newId = () => (crypto.randomUUID ? crypto.randomUUID() : `hwp-${Date.now()}-${Math.random().toString(16).slice(2)}`);
 
